@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Безопасный выбор — профилактика правонарушений по закладке наркотиков</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#F6F5EF;--ink:#183F39;--acc:#C35D3D;--soft:#E8EDE4;--mut:#64726D;--line:#D8DDD5;--w:#fff;--err:#A1321C;--onink:#fff;--accText:#A8472A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10201D;--ink:#E4EBE2;--acc:#E08A6C;--soft:#1B332E;--mut:#9DB0A9;--line:#2F4A44;--w:#162A26;--err:#F08C78;--onink:#10201D;--accText:#E08A6C;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10201D;--ink:#E4EBE2;--acc:#E08A6C;--soft:#1B332E;--mut:#9DB0A9;--line:#2F4A44;--w:#162A26;--err:#F08C78;--onink:#10201D;--accText:#E08A6C;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Segoe UI",Arial,sans-serif}
+.serif,h1,h2,h3.q{font-family:Georgia,"Times New Roman",serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+@media(min-width:768px){.wrap{padding:0 44px}}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+header{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;font-size:16px}
+.help{font-size:15px;font-weight:700;color:var(--ink);border:1.5px solid var(--acc);border-radius:6px;padding:10px 14px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+#mbtn{display:inline-flex;min-height:44px;min-width:44px;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:6px;color:var(--ink);font-size:15px;cursor:pointer;padding:0 12px}
+nav{display:none;border-top:1px solid var(--line)}
+nav.open{display:block}
+nav a{display:block;padding:12px 0;font-size:15px;text-decoration:none;border-bottom:3px solid transparent;min-height:44px}
+nav a.on{font-weight:700;border-bottom-color:var(--acc)}
+@media(min-width:1000px){#mbtn{display:none}nav{display:block;border:0}nav .wrap{display:flex;gap:22px;padding:0}nav a{padding:12px 0 10px;border-bottom:3px solid transparent;border-bottom-width:3px}}
+@media(min-width:1000px){.hd{display:flex;align-items:center;justify-content:space-between;gap:24px}nav{flex:1;margin-left:24px}nav .wrap{max-width:none;margin:0;justify-content:center}}
+section{display:none;padding:56px 0 24px}
+section.on{display:block}
+@media(min-width:768px){section{padding:72px 0 32px}}
+.eyebrow{font-size:13px;letter-spacing:.04em;font-weight:700;margin:0 0 16px}
+h1{font-size:40px;line-height:1.08;margin:0 0 22px;font-weight:700}
+h2{font-size:32px;line-height:1.15;margin:0 0 22px}
+@media(min-width:768px){h1{font-size:68px}h2{font-size:46px}}
+.acc{color:var(--accText)}
+.lead{font-size:18px;max-width:720px;margin:0 0 20px}
+@media(min-width:768px){.lead{font-size:20px}}
+p{max-width:760px}
+.quote{border-left:3px solid var(--acc);padding:2px 0 2px 16px;margin:24px 0;font-family:Georgia,serif;font-size:21px;max-width:560px}
+.hero{display:grid;gap:36px}
+@media(min-width:900px){.hero{grid-template-columns:3fr 2fr;align-items:start}}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:6px;font:700 16px "Segoe UI",Arial,sans-serif;cursor:pointer;text-decoration:none;border:2px solid var(--ink);background:var(--ink);color:var(--onink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.marks{display:flex;flex-wrap:wrap;gap:10px 28px;padding:0;list-style:none;margin:0;font-weight:600;font-size:15px}
+.marks li::before{content:"";display:inline-block;width:18px;height:2px;background:var(--acc);vertical-align:middle;margin-right:8px}
+.chat{background:var(--soft);border-radius:12px;padding:24px}
+.chat small{display:block;font-weight:700;font-size:13px;color:var(--mut);margin-bottom:12px}
+.msg{background:var(--w);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:0 0 12px;max-width:92%;font-size:16px}
+.msg.me{background:var(--ink);color:var(--onink);margin-left:auto;border-color:var(--ink)}
+.grid{display:grid;gap:22px;margin:28px 0}
+@media(min-width:700px){.g2,.g4{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.g4{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--soft);border-top:2px solid var(--ink);padding:24px}
+.card.w{background:var(--w);border:1px solid var(--line);border-top:1px solid var(--line)}
+.num{font-size:13px;font-weight:700}
+.big{font-family:Georgia,serif;font-size:34px;line-height:1.15;margin:8px 0}
+.card h3{font:700 21px Georgia,serif;margin:6px 0 8px}
+.card p{font-size:16px;margin:8px 0}
+.n{color:var(--accText);font-weight:700;font-size:14px}
+.note{font-size:15px;color:var(--mut);max-width:760px}
+.dark{background:var(--ink);color:var(--onink);padding:32px;margin:32px 0}
+.dark h3{font:700 27px Georgia,serif;margin:0 0 14px}
+.dark p{font-size:17px}
+.two{display:grid;gap:32px}
+@media(min-width:900px){.two{grid-template-columns:1.8fr 1fr;align-items:start}.two.r{grid-template-columns:1.8fr 1fr}}
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;padding:16px 0 16px 56px;border-bottom:1px solid var(--line);position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:14px;width:38px;height:38px;border:2px solid var(--acc);color:var(--accText);border-radius:50%;display:grid;place-items:center;font-weight:700}
+.side{background:var(--soft);padding:24px;border-radius:12px}
+.side .say{font:21px/1.4 Georgia,serif;margin:0 0 16px}
+.phrase{font:22px/1.45 Georgia,serif;max-width:700px;margin:18px 0}
+details{border-bottom:1px solid var(--line);padding:12px 0;max-width:760px}
+summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
+.test,.fbox{max-width:800px}
+.prog{height:6px;background:var(--line);border-radius:3px;margin:8px 0 22px}
+.prog i{display:block;height:100%;background:var(--acc);border-radius:3px;width:0;transition:width .2s}
+h3.q{font-size:22px;margin:0 0 16px}
+.opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:14px 18px;background:var(--w);border:1px solid var(--line);border-radius:6px;margin:0 0 10px;cursor:pointer}
+.opt:has(input:checked){border:2px solid var(--ink);background:var(--soft);padding:13px 17px}
+.opt input{width:20px;height:20px;accent-color:var(--ink);flex:none}
+.fb{background:var(--soft);padding:16px 20px;border-radius:6px;margin:16px 0;border-left:4px solid var(--ink)}
+.fb.bad{border-left-color:var(--acc)}
+.err{color:var(--err);font-weight:600;margin:8px 0}
+label.l{display:block;font-weight:600;margin:18px 0 6px;font-size:15px}
+select,textarea{width:100%;font:16px "Segoe UI",Arial,sans-serif;padding:12px 14px;background:var(--w);color:var(--ink);border:1px solid var(--mut);border-radius:6px;min-height:48px}
+textarea{min-height:150px;resize:vertical}
+.chk{display:flex;gap:12px;align-items:flex-start;margin:18px 0;font-size:15px}
+.chk input{width:22px;height:22px;flex:none;accent-color:var(--ink)}
+.rev{background:var(--w);border:1px solid var(--line);padding:16px 20px;margin:0 0 14px;border-radius:6px}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:48px 0 0;padding:20px 0;border-top:1px solid var(--line)}
+.pager span{font-weight:700;font-size:15px;color:var(--mut)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px;font-size:14px;color:var(--mut)}
+footer p{max-width:900px}
+.printhead{display:none}
+@media print{
+ header,.pager,.btns,footer,.noprint,.chat{display:none!important}
+ body{background:#fff;color:#000;font-size:12pt}
+ section{display:none!important}
+ section#s5{display:block!important;padding:0}
+ .side{background:#fff;border:1px solid #000;border-radius:0}
+ .printhead{display:block;font-size:11pt}
+ .two{display:block}
+ h2,p,li,details{break-inside:avoid}
+ details>*{display:block!important}
+ @page{size:A4;margin:18mm}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap hd">
+  <div class="bar">
+   <a class="logo" href="#s1" aria-label="Безопасный выбор — на главную">
+    <svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path d="M13 1 2 5v8c0 8 5 14 11 16 6-2 11-8 11-16V5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 15 4 4 6-8" fill="none" stroke="#C35D3D" stroke-width="2.5"/></svg>
+    Безопасный выбор</a>
+   <span style="display:flex;gap:8px;align-items:center">
+    <a class="help" href="#s4">Нужна помощь?</a>
+    <button id="lbtn" class="btn ghost" style="min-height:44px;padding:0 12px;font-size:15px" aria-label="Тілді ауыстыру / Сменить язык">Қазақша</button>
+    <button id="mbtn" aria-expanded="false" aria-controls="menu">Меню</button>
+   </span>
+  </div>
+  <nav id="menu" aria-label="Разделы"><div class="wrap" id="navl"></div></nav>
+ </div>
+</header>
+
+<main class="wrap">
+
+<section id="s1">
+ <div class="hero">
+  <div>
+   <p class="eyebrow">Профилактика правонарушений по закладке наркотиков</p>
+   <h1>(Лёгкие деньги — <span class="acc">серьёзные последствия</span>)</h1>
+   <p class="lead" style="font-weight:600">Как распознать вербовку в наркобизнес и защитить себя и близких</p>
+   <div class="quote">Твоё будущее дороже лёгких денег</div>
+   <p>Предложение высокой оплаты за доставку неизвестных свёртков может скрывать вовлечение в распространение наркотиков. Этот сайт поможет распознать признаки опасной «подработки», противостоять давлению вербовщиков и понять, куда обратиться за помощью. Для родителей подготовлена памятка о том, как заметить тревожные изменения и поддержать ребёнка.</p>
+   <div class="btns"><a class="btn" href="#s2">Узнать об ответственности</a><a class="btn ghost" href="#s3">Распознать вербовку</a></div>
+   <ul class="marks"><li>Понять ответственность</li><li>Защитить себя</li><li>Поддержать близкого</li></ul>
+  </div>
+  <div class="chat" role="img" aria-label="Учебная переписка: на предложение подработки приходит отказ">
+   <small>Учебный пример</small>
+   <p class="msg">Подработка без опыта. Нужно просто доставить пакет</p>
+   <p class="msg">Что внутри — не спрашивай. Никому не рассказывай</p>
+   <p class="msg me">Я не буду выполнять неизвестные поручения</p>
+  </div>
+ </div>
+</section>
+
+<section id="s2">
+ <p class="eyebrow">02 · Закон</p>
+ <h2>Статья 297 УК РК</h2>
+ <p class="lead">Статья устанавливает уголовную ответственность за незаконный оборот наркотиков, в том числе за сбыт — а «закладка» является именно сбытом. Чем тяжелее признаки, тем строже наказание.</p>
+ <div class="grid g4">
+  <div class="card"><div class="num">Часть 1</div><div class="big">5–8 лет</div><div class="n">Лишение свободы</div><p>Основной состав: сбыт наркотических средств.</p></div>
+  <div class="card"><div class="num">Часть 2</div><div class="big">6–10 лет</div><div class="n">Лишение свободы</div><p>Состав с квалифицирующими признаками, например крупный размер.</p></div>
+  <div class="card"><div class="num">Часть 3</div><div class="big">7–12 лет</div><div class="n">Лишение свободы</div><p>Более тяжкие признаки, в том числе повторность; возможна конфискация имущества.</p></div>
+  <div class="card"><div class="num">Часть 4</div><div class="big">15–20 лет</div><div class="n">Лишение свободы</div><p>Самые тяжкие признаки: деятельность в составе преступной группы, использование служебного положения, вовлечение несовершеннолетних.</p></div>
+ </div>
+ <p class="note">Это сокращённое изложение, а не текст закона. С 3 марта 2025 года санкции для «закладчиков» были пересмотрены, а ответственность организаторов и производителей вынесена в отдельную статью 297-1 УК РК. Санкция части 4 указана по данным автора проекта и требует сверки: перед публикацией проверьте все цифры с ИПС «Әділет» (<a href="https://adilet.zan.kz" target="_blank" rel="noopener">официальный текст статьи, откроется в новой вкладке</a>). Сведения подготовлены по публикациям СМИ, дата проверки: 10.11.2026 — сверка с Әділет ещё требуется.</p>
+ <div class="dark">
+  <h3>Личный комментарий к статье 297 УК РК</h3>
+  <p><i style="font-style:normal;opacity:.8">Мнение автора проекта, не текст закона. Замените своими формулировками.</i></p>
+  <p>О соразмерности: наказание должно отражать реальную роль человека. Подросток-курьер, которым управляет организатор, и сам организатор — разные по степени вины участники, и это важно учитывать.</p>
+  <p>О профилактике: строгость закона сама по себе не останавливает, если подросток не знает, что «лёгкая подработка» — это преступление. Ранний разговор и понятные признаки вербовки работают лучше запугивания.</p>
+  <p>Об эффективности: оценивать норму нужно по результатам — снижается ли число вовлечённых подростков и растёт ли доля тех, кто вовремя обратился за помощью.</p>
+ </div>
+ <div class="btns"><a class="btn" href="#s3">Как распознать вербовку</a></div>
+</section>
+
+<section id="s3">
+ <p class="eyebrow">03 · Методы вербовки</p>
+ <h2>Вербовка может начинаться с обычного сообщения</h2>
+ <p class="lead">Обращай внимание на условия предложения и попытки управлять твоими решениями.</p>
+ <div class="grid g2">
+  <div class="card w"><div class="n">01</div><h3>Обещают лёгкий доход</h3><p>Высокая оплата при скрытых обязанностях.</p><p><i>Пример: «Тысячи за один час, опыт не нужен».</i></p><p><b>Что делать:</b> сначала проверить условия.</p></div>
+  <div class="card w"><div class="n">02</div><h3>Скрывают смысл поручения</h3><p>Неизвестный пакет и требование секретности.</p><p><i>Пример: «Не спрашивай, что внутри».</i></p><p><b>Что делать:</b> не брать неизвестные вещи.</p></div>
+  <div class="card w"><div class="n">03</div><h3>Подгоняют и убеждают</h3><p>Спешка и обещания полной безопасности.</p><p><i>Пример: «Решай сейчас, тебя никто не найдёт».</i></p><p><b>Что делать:</b> взять паузу.</p></div>
+  <div class="card w"><div class="n">04</div><h3>Давят и угрожают</h3><p>Требования из чувства долга или страха.</p><p><i>Пример: «Теперь ты обязан, иначе будут проблемы».</i></p><p><b>Что делать:</b> обратиться за помощью.</p></div>
+ </div>
+ <p class="note">Все реплики — учебные примеры, не реальные сообщения.</p>
+</section>
+
+<section id="s4">
+ <p class="eyebrow">04 · Защити себя</p>
+ <h2>Ты можешь остановиться и попросить помощи</h2>
+ <div class="two">
+  <ol class="steps">
+   <li><b>Прекрати выполнять подозрительные поручения.</b> Не забирай, не носи и не оставляй ничего по чужой просьбе.</li>
+   <li><b>Защити персональные данные.</b> Не отправляй фото документов, адрес и данные карт.</li>
+   <li><b>Сохрани имеющиеся сообщения.</b> Не удаляй переписку — она может понадобиться тем, кто будет помогать.</li>
+   <li><b>Расскажи надёжному взрослому.</b> Родителю, педагогу, психологу — тому, кому доверяешь.</li>
+   <li><b>Обратись за помощью при угрозах.</b> Если тебе или близким угрожают, звони сразу.</li>
+  </ol>
+  <aside class="side" id="contacts" aria-label="Помощь">
+   <p class="say">Даже если ты уже ответил на предложение, обратиться за помощью можно и нужно</p>
+   <p><b>111</b> — <a href="tel:111">детский телефон доверия</a> (бесплатно)</p>
+   <p><b>102</b> — <a href="tel:102">полиция</a></p>
+   <p><b>112</b> — <a href="tel:112">единая служба экстренной помощи</a></p>
+   <p class="note" style="font-size:14px">Проверьте актуальность номеров перед публикацией.</p>
+  </aside>
+ </div>
+</section>
+
+<section id="s5">
+ <div class="printhead">Сайт «Безопасный выбор» · Памятка для родителей</div>
+ <p class="eyebrow">05 · Родителям</p>
+ <h2>Заметить. Выслушать. Поддержать.</h2>
+ <p class="lead">Пусть ребёнок знает: к вам можно прийти с трудным вопросом, ошибкой или страхом.</p>
+ <div class="btns noprint"><button class="btn" onclick="window.print()">Распечатать памятку</button></div>
+ <div class="two">
+  <div>
+   <h3 class="serif">О чём говорить заранее</h3><p>О прозрачных условиях подработки, защите данных и о том, что за помощью можно обратиться всегда.</p>
+   <h3 class="serif">Что может стать поводом для разговора</h3><p>Необъяснимые деньги, тревога, скрытная подработка. Отдельные признаки не доказывают участия в преступлении.</p>
+   <h3 class="serif">Как начать разговор</h3><p>Спокойно опишите свои наблюдения, выслушайте ребёнка и предложите поддержку.</p>
+   <details open><summary>Как действовать при угрозах</summary><p>Помогите обеспечить безопасность, сохраните имеющиеся сообщения, обратитесь к компетентным специалистам.</p></details>
+   <details open><summary>Чего избегать</summary><p>Публичных обвинений, унижения и самостоятельных встреч с предполагаемыми вербовщиками.</p></details>
+   <p class="phrase">«Я вижу, что ты переживаешь. Расскажи, что происходит. Я хочу помочь».</p>
+   <p class="phrase">«Если кто-то давит на тебя или угрожает, мы будем искать выход вместе».</p>
+   <p class="printhead">Помощь: 111 (телефон доверия для детей), 102, 112.</p>
+  </div>
+  <aside class="side"><h3 class="serif" style="margin-top:0">Начните с поддержки</h3><p>Помощь важнее вины: сначала безопасность и разговор, потом разбор ситуации.</p><p><b>111</b> · <b>102</b> · <b>112</b></p></aside>
+ </div>
+ <div class="btns noprint"><a class="btn ghost" href="#s6">Проверить знания вместе с ребёнком</a></div>
+ <p class="note noprint">Это учебное задание, а не диагностика и не способ определить причастность к правонарушению.</p>
+</section>
+
+<section id="s6">
+ <p class="eyebrow">06 · Тест</p>
+ <h2>Распознаешь ли ты опасное предложение?</h2>
+ <p class="note">8 вопросов · один правильный ответ · имя и регистрация не нужны, ответы не отправляются на сервер.</p>
+ <div class="test" id="test"></div>
+</section>
+
+<section id="s7">
+ <p class="eyebrow">07 · Книга предложений</p>
+ <h2>Помогите сделать сайт полезнее</h2>
+ <div class="two">
+  <form id="fm" class="fbox" novalidate>
+   <label class="l" for="who">Кто вы (необязательно)</label>
+   <select id="who"><option value="">Предпочитаю не указывать</option><option>Учащийся</option><option>Родитель</option><option>Педагог</option><option>Другой читатель</option></select>
+   <label class="l" for="clr">Понятность материала (необязательно)</label>
+   <select id="clr"><option value="">—</option><option>Понятно</option><option>Частично понятно</option><option>Нужны пояснения</option></select>
+   <label class="l" for="txt">Предложение или вопрос</label>
+   <textarea id="txt" maxlength="800"></textarea><div class="note" id="cnt">0 / 800</div>
+   <div class="chk"><input type="checkbox" id="ok"><label for="ok">Согласен(на) на публикацию отзыва на сайте после проверки ответственным лицом.</label></div>
+   <div class="err" id="ferr" role="alert"></div>
+   <button class="btn" type="submit" id="fsend">Отправить предложение</button>
+   <div id="fok" role="status" class="fb" hidden></div>
+  </form>
+  <aside class="side"><p>Не указывайте персональные данные. Форма предназначена для отзывов о сайте и не является каналом экстренной помощи или подачи заявления.</p><p>Отзывы публикуются только после проверки.</p></aside>
+ </div>
+ <h3 class="serif" style="margin-top:40px">Одобренные отзывы</h3>
+ <div id="revs"><p class="note">Пока нет опубликованных отзывов.</p></div>
+</section>
+
+<div class="pager noprint"><a class="btn ghost" id="prev" href="#s1">Назад</a><span id="pos">01 / 07</span><a class="btn" id="next" href="#s2">Далее</a></div>
+</main>
+
+<footer><div class="wrap"><p><b>Безопасный выбор</b> — просветительский проект по профилактике правонарушений. Источники: <a href="https://adilet.zan.kz" target="_blank" rel="noopener">ИПС «Әділет»</a> (внешняя ссылка). Правовая информация подготовлена по открытым источникам, дата проверки: 10.11.2026; требуется окончательная сверка с официальным текстом. Сайт не заменяет юридическую консультацию.</p></div></footer>
+
+<script>
+var TT={ru:["Главная","Статья 297","Методы вербовки","Защити себя","Родителям","Тест","Книга предложений"],kk:["Басты бет","297-бап","Тарту әдістері","Өзіңді қорға","Ата-аналарға","Тест","Ұсыныстар кітабы"]};var T=TT.ru;
+var nl=document.getElementById("navl"),mb=document.getElementById("mbtn"),menu=document.getElementById("menu");
+T.forEach(function(t,i){var a=document.createElement("a");a.href="#s"+(i+1);a.textContent=t;nl.appendChild(a)});
+mb.onclick=function(){var o=menu.classList.toggle("open");mb.setAttribute("aria-expanded",o)};
+function route(){
+ var n=parseInt((location.hash.match(/^#s([1-7])$/)||[0,1])[1],10);
+ document.querySelectorAll("section").forEach(function(s,i){s.classList.toggle("on",i+1===n)});
+ nl.querySelectorAll("a").forEach(function(a,i){a.classList.toggle("on",i+1===n);if(i+1===n)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+ var p=document.getElementById("prev"),x=document.getElementById("next");
+ p.href="#s"+Math.max(1,n-1);x.href="#s"+Math.min(7,n+1);
+ p.style.visibility=n===1?"hidden":"visible";x.style.visibility=n===7?"hidden":"visible";
+ document.getElementById("pos").textContent="0"+n+" / 07";
+ menu.classList.remove("open");mb.setAttribute("aria-expanded","false");
+ window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);route();
+
+/* Тест */
+var Q=[
+["Тебе пишут: «Высокая оплата за доставку пакета, опыт не нужен». Что разумнее всего?",["Согласиться, если платят много","Отказаться и рассказать надёжному взрослому","Взять пакет, но не открывать","Спросить, что внутри, и тогда решить"],1,"Скрытые условия и высокая оплата за простую работу — признак вербовки. Безопасное действие — отказаться и рассказать взрослому."],
+["Что из перечисленного чаще всего выдаёт опасное предложение?",["Чёткий договор и адрес работодателя","Требование никому не рассказывать","Собеседование при встрече в офисе","Оплата после выполнения работы"],1,"Требование секретности — важный тревожный сигнал: так скрывают смысл поручения."],
+["Тебя торопят: «Решай сейчас, иначе место займут». Как поступить?",["Согласиться быстро","Взять паузу и обсудить со взрослым","Попросить аванс","Переслать предложение друзьям для проверки"],1,"Спешка — способ давления. Пауза даёт время подумать и посоветоваться."],
+["Ты уже ответил на предложение, но понял, что оно подозрительное. Что делать?",["Скрыть это и надеяться, что всё закончится","Прекратить общение, сохранить сообщения, обратиться за помощью","Удалить переписку","Выполнить одно поручение, чтобы отстали"],1,"Остановиться никогда не поздно. Сообщения лучше сохранить — они помогут тем, кто будет помогать."],
+["Собеседник просит фото документов и данные банковской карты «для оформления». Как поступить?",["Отправить, если он вежлив","Не передавать персональные данные","Отправить только фото паспорта","Отправить данные карты, но без кода"],1,"Персональные данные могут использоваться против тебя. Не передавай их незнакомым."],
+["Тебе угрожают: «Теперь ты обязан, иначе будут проблемы». Что делать?",["Выполнить требование","Не оставаться одному и сразу обратиться за помощью","Ответить угрозой","Подождать несколько дней"],1,"При угрозах нужна помощь взрослых и специалистов. Звони 112, 102 или 111."],
+["Родитель замечает у ребёнка необъяснимые деньги. Как лучше начать разговор?",["Публично обвинить","Спокойно описать наблюдения и выслушать","Самому найти «работодателя»","Промолчать"],1,"Спокойный разговор и поддержка работают лучше обвинений. Один признак ещё не доказывает вовлечённость."],
+["Что верно о такой «подработке»?",["Если не знаешь, что в пакете, ответственности нет","Незнание содержимого автоматически освобождает от ответственности","Участие в сбыте наркотиков влечёт уголовную ответственность","Ответственность наступает только в совершеннолетнем возрасте"],2,"Сбыт наркотиков, в том числе «закладки», — преступление. Не нужно соглашаться на неизвестные поручения."]
+];
+var QK=[
+["Саған: «Пакетті жеткізгені үшін жоғары ақы, тәжірибе қажет емес» деп жазды. Не істеген дұрыс?",["Көп төлесе, келісу","Бас тартып, сенімді ересек адамға айту","Пакетті алып, ашпай қою","Ішінде не бар екенін сұрап, содан кейін шешу"],1,"Жасырын шарттар мен қарапайым жұмысқа жоғары ақы — тартудың белгісі. Қауіпсіз әрекет: бас тарту және ересек адамға айту."],
+["Төмендегілердің қайсысы қауіпті ұсынысты жиі әшкерелейді?",["Анық шарт пен жұмыс берушінің мекенжайы","Ешкімге айтпауды талап ету","Кеңседе кездесіп сұхбаттасу","Жұмыс орындалған соң төлем"],1,"Құпиялылықты талап ету — маңызды қауіп белгісі: тапсырманың мәнін осылай жасырады."],
+["Сені асықтырады: «Қазір шеш, әйтпесе орынды басқа біреу алады». Қалай әрекет ету керек?",["Тез келісу","Кідіріп, ересек адаммен талқылау","Алдын ала төлем сұрау","Ұсынысты достарға тексертуге жіберу"],1,"Асығу — қысым жасау тәсілі. Кідіріс ойлануға және кеңесуге уақыт береді."],
+["Сен ұсынысқа жауап бердің, бірақ оның күдікті екенін түсіндің. Не істейсің?",["Жасырып, бәрі өтіп кетеді деп күту","Араласуды тоқтатып, хабарламаларды сақтап, көмек сұрау","Жазбаны жою","Құтылу үшін бір тапсырманы орындау"],1,"Тоқтауға ешқашан кеш емес. Хабарламаларды сақтаған дұрыс — олар көмектесетіндерге қажет болады."],
+["Әңгімелесуші «рәсімдеу үшін» құжаттар суретін және банк картасының деректерін сұрайды. Қалай әрекет етесің?",["Мәдениетті болса, жіберу","Жеке деректерді бермеу","Тек төлқұжат суретін жіберу","Картаның деректерін кодсыз жіберу"],1,"Жеке деректер саған қарсы қолданылуы мүмкін. Оларды бейтаныс адамдарға берме."],
+["Саған қорқытады: «Енді сен міндеттісің, әйтпесе қиындық болады». Не істейсің?",["Талапты орындау","Жалғыз қалмай, бірден көмек сұрау","Қорқытумен жауап беру","Бірнеше күн күту"],1,"Қорқытқанда ересектер мен мамандардың көмегі қажет. 112, 102 немесе 111 нөміріне қоңырау шал."],
+["Ата-ана баласынан түсініксіз ақша байқады. Әңгімені қалай бастаған дұрыс?",["Көпшілік алдында айыптау","Байқағанын сабырмен айтып, тыңдау","«Жұмыс берушіні» өзі іздеу","Үндемеу"],1,"Сабырлы әңгіме мен қолдау айыптаудан тиімдірек. Бір белгі әлі тартылғанын дәлелдемейді."],
+["Мұндай «қосымша жұмыс» туралы не дұрыс?",["Пакетте не бар екенін білмесең, жауапкершілік жоқ","Мазмұнын білмеу жауапкершіліктен автоматты түрде босатады","Есірткіні өткізуге қатысу қылмыстық жауапкершілікке әкеледі","Жауапкершілік тек кәмелетке толғанда басталады"],2,"Есірткіні өткізу, соның ішінде «закладка» — қылмыс. Беймәлім тапсырмаларға келісуге болмайды."]
+];
+var LANG="ru";function t(r,k){return LANG==="kk"?k:r}
+function QQ(i){var x=LANG==="kk"?QK[i]:Q[i];return x}
+var qi=0,score=0,sel=null,checked=false,res=[],tb=document.getElementById("test"),done=false;
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function showQ(){
+ var q=QQ(qi);checked=false;sel=null;done=false;
+ tb.innerHTML='<div>'+t('Вопрос '+(qi+1)+' из 8',(qi+1)+'-сұрақ, барлығы 8')+'</div><div class="prog"><i style="width:'+(qi/8*100)+'%"></i></div><fieldset style="border:0;padding:0;margin:0"><legend><h3 class="q">'+esc(q[0])+'</h3></legend>'+
+ q[1].map(function(o,i){return '<label class="opt"><input type="radio" name="a" value="'+i+'"><span>'+esc(o)+'</span></label>'}).join("")+
+ '</fieldset><div class="err" id="terr" role="alert"></div><div id="tfb" role="status"></div><button class="btn" id="tbtn">'+t('Проверить ответ','Жауапты тексеру')+'</button>';
+ tb.querySelectorAll("input").forEach(function(r){r.onchange=function(){sel=+r.value;document.getElementById("terr").textContent=""}});
+ document.getElementById("tbtn").onclick=step;
+}
+function step(){
+ var q=QQ(qi),b=document.getElementById("tbtn");
+ if(!checked){
+  if(sel===null){document.getElementById("terr").textContent=t("⚠ Сначала выберите один ответ","⚠ Алдымен бір жауап таңдаңыз");return}
+  checked=true;var ok=sel===q[2];if(ok)score++;res.push(qi);
+  tb.querySelectorAll("input").forEach(function(r){r.disabled=true});
+  document.getElementById("tfb").innerHTML='<div class="fb'+(ok?'':' bad')+'"><b>'+(ok?t('✓ Верно','✓ Дұрыс'):t('ℹ Посмотрите пояснение','ℹ Түсініктемені қараңыз'))+'</b><br>'+(ok?'':t('Правильный ответ: ','Дұрыс жауап: ')+esc(q[1][q[2]])+'. ')+esc(q[3])+'</div>';
+  b.textContent=qi===7?t("Показать результат","Нәтижені көрсету"):t("Следующий вопрос","Келесі сұрақ");
+ }else{qi++;if(qi>7)result();else showQ()}
+}
+function result(){
+ done=true;
+ var m=score>=7?t("Вы хорошо распознаёте опасные предложения","Сіз қауіпті ұсыныстарды жақсы танисыз"):score>=4?t("Основные признаки вам знакомы","Негізгі белгілер сізге таныс"):t("Вернитесь к памятке и попробуйте ещё раз","Жадынамаға оралып, қайта байқап көріңіз");
+ tb.innerHTML='<div class="prog"><i style="width:100%"></i></div><h3 class="q">'+t('Правильных ответов: '+score+' из 8','Дұрыс жауап: '+score+' / 8')+'</h3><p class="lead">'+m+'</p><h3 class="serif">'+t('Разбор ответов','Жауаптар талдауы')+'</h3>'+
+ Q.map(function(_,i){var r=QQ(i);return '<details><summary>'+t('Вопрос ','Сұрақ ')+(i+1)+'</summary><p>'+esc(r[0])+'<br><b>'+t('Правильный ответ:','Дұрыс жауап:')+'</b> '+esc(r[1][r[2]])+'. '+esc(r[3])+'</p></details>'}).join("")+
+ '<div class="btns"><button class="btn" id="again">'+t('Пройти ещё раз','Қайта өту')+'</button><a class="btn ghost" href="#s7">'+t('Оставить предложение','Ұсыныс қалдыру')+'</a></div><p class="note">'+t('Тест учебный: он не измеряет реальную вовлечённость и не гарантирует безопасность.','Тест оқу мақсатында: ол нақты тартылуды өлшемейді және қауіпсіздікке кепілдік бермейді.')+'</p>';
+ document.getElementById("again").onclick=function(){qi=0;score=0;res=[];showQ()};
+}
+showQ();
+
+/* Книга предложений */
+var db=null,uid=null,fm=document.getElementById("fm"),txt=document.getElementById("txt");
+txt.oninput=function(){document.getElementById("cnt").textContent=txt.value.length+" / 800"};
+function loadRevs(){
+ if(!db)return;
+ try{db.collection("suggestions").where("approved","==",true).get().then(function(s){
+  var rows=(s.docs||[]).map(function(d){return d.data()}).filter(function(x){return x&&x.text});
+  if(!rows.length)return;
+  rows.sort(function(a,b){return (b.date||"").localeCompare(a.date||"")});
+  document.getElementById("revs").innerHTML=rows.map(function(x){return '<div class="rev"><div class="note">'+esc(x.date||"")+(x.who?' · '+esc(x.who):'')+'</div>'+esc(x.text)+'</div>'}).join("");
+ }).catch(function(){})}catch(e){}
+}
+if(window.claude&&claude.use){Promise.all([claude.use("db"),claude.use("user")]).then(function(r){db=r[0];return r[1]&&r[1].id?r[1].id():null}).then(function(i){uid=i;loadRevs()}).catch(function(){})}
+fm.onsubmit=function(e){
+ e.preventDefault();var er=document.getElementById("ferr"),ok=document.getElementById("fok");ok.hidden=true;er.textContent="";
+ var t=txt.value.trim();
+ if(!t){er.textContent=t("⚠ Напишите предложение или вопрос","⚠ Ұсыныс немесе сұрақ жазыңыз");return}
+ if(!db||!uid){er.textContent=t("⚠ Сохранение сейчас недоступно. Текст не потерян — попробуйте ещё раз позже.","⚠ Қазір сақтау мүмкін емес. Мәтін жоғалмады — кейінірек қайталап көріңіз.");return}
+ var btn=document.getElementById("fsend");btn.disabled=true;
+ db.collection("inbox/"+uid+"/items").add({text:t,who:document.getElementById("who").value,clarity:document.getElementById("clr").value,consent:document.getElementById("ok").checked,approved:false,date:new Date().toISOString().slice(0,10)})
+ .then(function(){ok.hidden=false;ok.textContent=t("✓ Предложение сохранено. Если вы дали согласие, отзыв появится после проверки.","✓ Ұсыныс сақталды. Келісім берсеңіз, пікір тексеруден кейін жарияланады.");fm.reset();document.getElementById("cnt").textContent="0 / 800"})
+ .catch(function(){er.textContent=t("⚠ Не удалось сохранить. Ваш текст сохранён в поле — повторите отправку.","⚠ Сақтау мүмкін болмады. Мәтін өрісте қалды — қайта жіберіңіз.")})
+ .then(function(){btn.disabled=false});
+};
+
+/* Язык */
+var D=[
+["Безопасный выбор","Қауіпсіз таңдау"],["Нужна помощь?","Көмек керек пе?"],["Меню","Мәзір"],
+["Профилактика правонарушений по закладке наркотиков","Есірткіні жасырып қалдыру («закладка») арқылы жасалатын құқық бұзушылықтардың алдын алу"],
+["(Лёгкие деньги —","(Оңай ақша —"],["серьёзные последствия","ауыр салдар"],
+["Как распознать вербовку в наркобизнес и защитить себя и близких","Есірткі бизнесіне тартуды қалай тануға, өзіңді және жақындарыңды қалай қорғауға болады"],
+["Твоё будущее дороже лёгких денег","Сенің болашағың оңай ақшадан қымбат"],
+["Предложение высокой оплаты за доставку неизвестных свёртков может скрывать вовлечение в распространение наркотиков. Этот сайт поможет распознать признаки опасной «подработки», противостоять давлению вербовщиков и понять, куда обратиться за помощью. Для родителей подготовлена памятка о том, как заметить тревожные изменения и поддержать ребёнка.","Беймәлім орамдарды жеткізгені үшін жоғары ақы ұсыну есірткі таратуға тартуды жасыруы мүмкін. Бұл сайт қауіпті «қосымша жұмыстың» белгілерін тануға, тартушылардың қысымына қарсы тұруға және көмекке қайда жүгінуге болатынын түсінуге көмектеседі. Ата-аналарға мазасыз өзгерістерді қалай байқауға және баланы қалай қолдауға болатыны туралы жадынама дайындалған."],
+["Узнать об ответственности","Жауапкершілік туралы білу"],["Распознать вербовку","Тартуды тану"],
+["Понять ответственность","Жауапкершілікті түсіну"],["Защитить себя","Өзіңді қорғау"],["Поддержать близкого","Жақыныңды қолдау"],
+["Учебный пример","Оқу мысалы"],
+["Подработка без опыта. Нужно просто доставить пакет","Тәжірибесіз қосымша жұмыс. Жай ғана пакетті жеткізу керек"],
+["Что внутри — не спрашивай. Никому не рассказывай","Ішінде не бар — сұрама. Ешкімге айтпа"],
+["Я не буду выполнять неизвестные поручения","Мен беймәлім тапсырмаларды орындамаймын"],
+["02 · Закон","02 · Заң"],["Статья 297 УК РК","ҚР ҚК 297-бабы"],
+["Статья устанавливает уголовную ответственность за незаконный оборот наркотиков, в том числе за сбыт — а «закладка» является именно сбытом. Чем тяжелее признаки, тем строже наказание.","Бап есірткінің заңсыз айналымы үшін, соның ішінде өткізу үшін қылмыстық жауапкершілік белгілейді, ал «закладка» дәл өткізу болып табылады. Белгілері неғұрлым ауыр болса, жаза соғұрлым қатаң."],
+["Часть 1","1-бөлік"],["Часть 2","2-бөлік"],["Часть 3","3-бөлік"],["Часть 4","4-бөлік"],
+["5–8 лет","5–8 жыл"],["6–10 лет","6–10 жыл"],["7–12 лет","7–12 жыл"],["15–20 лет","15–20 жыл"],
+["Лишение свободы","Бас бостандығынан айыру"],
+["Основной состав: сбыт наркотических средств.","Негізгі құрам: есірткі заттарын өткізу."],
+["Состав с квалифицирующими признаками, например крупный размер.","Саралаушы белгілері бар құрам, мысалы, ірі мөлшер."],
+["Более тяжкие признаки, в том числе повторность; возможна конфискация имущества.","Неғұрлым ауыр белгілер, соның ішінде қайталану; мүлікті тәркілеу мүмкін."],
+["Самые тяжкие признаки: деятельность в составе преступной группы, использование служебного положения, вовлечение несовершеннолетних.","Ең ауыр белгілер: қылмыстық топ құрамындағы әрекет, қызметтік жағдайды пайдалану, кәмелетке толмағандарды тарту."],
+["Это сокращённое изложение, а не текст закона. С 3 марта 2025 года санкции для «закладчиков» были пересмотрены, а ответственность организаторов и производителей вынесена в отдельную статью 297-1 УК РК. Санкция части 4 указана по данным автора проекта и требует сверки: перед публикацией проверьте все цифры с ИПС «Әділет» (","Бұл заң мәтіні емес, қысқартылған баяндама. 2025 жылғы 3 наурыздан бастап «закладчиктерге» санкциялар қайта қаралды, ал ұйымдастырушылар мен өндірушілердің жауапкершілігі ҚР ҚК жеке 297-1 бабына шығарылды. 4-бөлік санкциясы жоба авторының деректері бойынша көрсетілген және салыстыруды қажет етеді: жарияламас бұрын барлық сандарды «Әділет» ақпараттық-құқықтық жүйесімен тексеріңіз ("],
+["официальный текст статьи, откроется в новой вкладке","баптың ресми мәтіні, жаңа қойындыда ашылады"],
+["). Сведения подготовлены по публикациям СМИ, дата проверки: 10.11.2026 — сверка с Әділет ещё требуется.","). Мәліметтер БАҚ жарияланымдары бойынша дайындалған, тексеру күні: 10.11.2026 — «Әділетпен» салыстыру әлі қажет."],
+["Личный комментарий к статье 297 УК РК","ҚР ҚК 297-бабына жеке түсініктеме"],
+["Мнение автора проекта, не текст закона. Замените своими формулировками.","Жоба авторының пікірі, заң мәтіні емес. Өз тұжырымдарыңызбен ауыстырыңыз."],
+["О соразмерности: наказание должно отражать реальную роль человека. Подросток-курьер, которым управляет организатор, и сам организатор — разные по степени вины участники, и это важно учитывать.","Тепе-теңдік туралы: жаза адамның нақты рөлін көрсетуі тиіс. Ұйымдастырушы басқаратын жасөспірім-курьер мен ұйымдастырушының өзі — кінә дәрежесі әртүрлі қатысушылар, мұны ескеру маңызды."],
+["О профилактике: строгость закона сама по себе не останавливает, если подросток не знает, что «лёгкая подработка» — это преступление. Ранний разговор и понятные признаки вербовки работают лучше запугивания.","Алдын алу туралы: жасөспірім «оңай қосымша жұмыстың» қылмыс екенін білмесе, заңның қатаңдығының өзі тоқтата алмайды. Ерте әңгіме мен тартудың түсінікті белгілері қорқытудан тиімдірек."],
+["Об эффективности: оценивать норму нужно по результатам — снижается ли число вовлечённых подростков и растёт ли доля тех, кто вовремя обратился за помощью.","Тиімділік туралы: нормаға нәтиже бойынша баға беру керек — тартылған жасөспірімдер саны азаяды ма және уақытында көмекке жүгінгендердің үлесі өсе ме."],
+["Как распознать вербовку","Тартуды қалай тануға болады"],
+["03 · Методы вербовки","03 · Тарту әдістері"],
+["Вербовка может начинаться с обычного сообщения","Тарту қарапайым хабарламадан басталуы мүмкін"],
+["Обращай внимание на условия предложения и попытки управлять твоими решениями.","Ұсыныстың шарттарына және сенің шешімдеріңді басқаруға тырысуға назар аудар."],
+["Обещают лёгкий доход","Оңай табыс уәде етеді"],["Высокая оплата при скрытых обязанностях.","Жасырын міндеттер кезіндегі жоғары ақы."],["Пример: «Тысячи за один час, опыт не нужен».","Мысал: «Бір сағатқа мыңдаған теңге, тәжірибе керек емес»."],["Что делать:","Не істеу керек:"],["сначала проверить условия.","алдымен шарттарды тексеру."],
+["Скрывают смысл поручения","Тапсырманың мәнін жасырады"],["Неизвестный пакет и требование секретности.","Беймәлім пакет және құпиялылық талабы."],["Пример: «Не спрашивай, что внутри».","Мысал: «Ішінде не бар екенін сұрама»."],["не брать неизвестные вещи.","беймәлім заттарды алмау."],
+["Подгоняют и убеждают","Асықтырады және сендіреді"],["Спешка и обещания полной безопасности.","Асығыстық және толық қауіпсіздік туралы уәде."],["Пример: «Решай сейчас, тебя никто не найдёт».","Мысал: «Қазір шеш, сені ешкім таппайды»."],["взять паузу.","кідіру."],
+["Давят и угрожают","Қысым жасайды және қорқытады"],["Требования из чувства долга или страха.","Борыш немесе қорқыныш сезімі арқылы талаптар."],["Пример: «Теперь ты обязан, иначе будут проблемы».","Мысал: «Енді сен міндеттісің, әйтпесе қиындық болады»."],["обратиться за помощью.","көмекке жүгіну."],
+["Все реплики — учебные примеры, не реальные сообщения.","Барлық репликалар — оқу мысалдары, нақты хабарламалар емес."],
+["04 · Защити себя","04 · Өзіңді қорға"],["Ты можешь остановиться и попросить помощи","Сен тоқтап, көмек сұрай аласың"],
+["Прекрати выполнять подозрительные поручения.","Күдікті тапсырмаларды орындауды тоқтат."],["Не забирай, не носи и не оставляй ничего по чужой просьбе.","Біреудің өтінішімен ештеңе алма, тасымалдама және қалдырма."],
+["Защити персональные данные.","Жеке деректеріңді қорға."],["Не отправляй фото документов, адрес и данные карт.","Құжаттардың суретін, мекенжайды және карта деректерін жіберме."],
+["Сохрани имеющиеся сообщения.","Бар хабарламаларды сақта."],["Не удаляй переписку — она может понадобиться тем, кто будет помогать.","Жазбаны жойма — ол көмектесетіндерге қажет болуы мүмкін."],
+["Расскажи надёжному взрослому.","Сенімді ересек адамға айт."],["Родителю, педагогу, психологу — тому, кому доверяешь.","Ата-анаға, педагогқа, психологқа — сенетін адамыңа."],
+["Обратись за помощью при угрозах.","Қорқытқанда көмекке жүгін."],["Если тебе или близким угрожают, звони сразу.","Саған немесе жақындарыңа қауіп төніп тұрса, бірден қоңырау шал."],
+["Даже если ты уже ответил на предложение, обратиться за помощью можно и нужно","Ұсынысқа жауап берген болсаң да, көмекке жүгінуге болады және жүгіну керек"],
+["детский телефон доверия","балалар сенім телефоны"],["(бесплатно)","(тегін)"],["полиция","полиция"],["единая служба экстренной помощи","бірыңғай жедел көмек қызметі"],
+["Проверьте актуальность номеров перед публикацией.","Жарияламас бұрын нөмірлердің өзектілігін тексеріңіз."],
+["Сайт «Безопасный выбор» · Памятка для родителей","«Қауіпсіз таңдау» сайты · Ата-аналарға арналған жадынама"],
+["05 · Родителям","05 · Ата-аналарға"],["Заметить. Выслушать. Поддержать.","Байқа. Тыңда. Қолда."],
+["Пусть ребёнок знает: к вам можно прийти с трудным вопросом, ошибкой или страхом.","Бала білсін: сізге қиын сұрақпен, қателікпен немесе қорқынышпен келуге болады."],
+["Распечатать памятку","Жадынаманы басып шығару"],
+["О чём говорить заранее","Алдын ала не туралы айту керек"],["О прозрачных условиях подработки, защите данных и о том, что за помощью можно обратиться всегда.","Қосымша жұмыстың ашық шарттары, деректерді қорғау және көмекке әрқашан жүгінуге болатыны туралы."],
+["Что может стать поводом для разговора","Әңгімеге не себеп болуы мүмкін"],["Необъяснимые деньги, тревога, скрытная подработка. Отдельные признаки не доказывают участия в преступлении.","Түсініксіз ақша, мазасыздық, жасырын қосымша жұмыс. Жекелеген белгілер қылмысқа қатысқанын дәлелдемейді."],
+["Как начать разговор","Әңгімені қалай бастау керек"],["Спокойно опишите свои наблюдения, выслушайте ребёнка и предложите поддержку.","Байқағаныңызды сабырмен айтып, баланы тыңдаңыз және қолдау ұсыныңыз."],
+["Как действовать при угрозах","Қорқытқанда қалай әрекет ету керек"],["Помогите обеспечить безопасность, сохраните имеющиеся сообщения, обратитесь к компетентным специалистам.","Қауіпсіздікті қамтамасыз етуге көмектесіңіз, бар хабарламаларды сақтаңыз, құзыретті мамандарға жүгініңіз."],
+["Чего избегать","Нені болдырмау керек"],["Публичных обвинений, унижения и самостоятельных встреч с предполагаемыми вербовщиками.","Көпшілік алдында айыптауды, қорлауды және болжамды тартушылармен өз бетінше кездесуді."],
+["«Я вижу, что ты переживаешь. Расскажи, что происходит. Я хочу помочь».","«Сенің уайымдап жүргеніңді көріп тұрмын. Не болып жатқанын айтшы. Мен көмектескім келеді»."],
+["«Если кто-то давит на тебя или угрожает, мы будем искать выход вместе».","«Біреу саған қысым жасаса немесе қорқытса, шығар жолды бірге іздейміз»."],
+["Помощь: 111 (телефон доверия для детей), 102, 112.","Көмек: 111 (балаларға арналған сенім телефоны), 102, 112."],
+["Начните с поддержки","Қолдаудан бастаңыз"],["Помощь важнее вины: сначала безопасность и разговор, потом разбор ситуации.","Көмек кінәдан маңыздырақ: алдымен қауіпсіздік пен әңгіме, содан кейін жағдайды талдау."],
+["Проверить знания вместе с ребёнком","Білімді баламен бірге тексеру"],["Это учебное задание, а не диагностика и не способ определить причастность к правонарушению.","Бұл оқу тапсырмасы, диагностика емес және құқық бұзушылыққа қатыстылықты анықтау тәсілі емес."],
+["06 · Тест","06 · Тест"],["Распознаешь ли ты опасное предложение?","Қауіпті ұсынысты тани аласың ба?"],
+["8 вопросов · один правильный ответ · имя и регистрация не нужны, ответы не отправляются на сервер.","8 сұрақ · бір дұрыс жауап · аты-жөні мен тіркелу қажет емес, жауаптар серверге жіберілмейді."],
+["07 · Книга предложений","07 · Ұсыныстар кітабы"],["Помогите сделать сайт полезнее","Сайтты пайдалырақ етуге көмектесіңіз"],
+["Кто вы (необязательно)","Сіз кімсіз (міндетті емес)"],["Предпочитаю не указывать","Көрсетпегенді жөн көремін"],["Учащийся","Оқушы"],["Родитель","Ата-ана"],["Педагог","Педагог"],["Другой читатель","Басқа оқырман"],
+["Понятность материала (необязательно)","Материалдың түсініктілігі (міндетті емес)"],["Понятно","Түсінікті"],["Частично понятно","Iшінара түсінікті"],["Нужны пояснения","Түсініктеме қажет"],
+["Предложение или вопрос","Ұсыныс немесе сұрақ"],
+["Согласен(на) на публикацию отзыва на сайте после проверки ответственным лицом.","Пікірдің жауапты тұлға тексергеннен кейін сайтта жариялануына келісемін."],
+["Отправить предложение","Ұсынысты жіберу"],
+["Не указывайте персональные данные. Форма предназначена для отзывов о сайте и не является каналом экстренной помощи или подачи заявления.","Жеке деректерді көрсетпеңіз. Форма сайт туралы пікірлерге арналған, жедел көмек алу немесе өтініш беру арнасы емес."],
+["Отзывы публикуются только после проверки.","Пікірлер тек тексеруден кейін жарияланады."],
+["Одобренные отзывы","Мақұлданған пікірлер"],["Пока нет опубликованных отзывов.","Әзірге жарияланған пікір жоқ."],
+["Назад","Артқа"],["Далее","Алға"],
+["— просветительский проект по профилактике правонарушений. Источники:","— құқық бұзушылықтың алдын алуға арналған ағартушылық жоба. Дереккөздер:"],
+["ИПС «Әділет»","«Әділет» ақпараттық-құқықтық жүйесі"],
+["(внешняя ссылка). Правовая информация подготовлена по открытым источникам, дата проверки: 10.11.2026; требуется окончательная сверка с официальным текстом. Сайт не заменяет юридическую консультацию.","(сыртқы сілтеме). Құқықтық ақпарат ашық дереккөздер бойынша дайындалған, тексеру күні: 10.11.2026; ресми мәтінмен түпкілікті салыстыру қажет. Сайт заңгерлік кеңестің орнын алмастырмайды."]
+];
+var DM={};D.forEach(function(p){DM[p[0]]=p[1]});
+var DR={};D.forEach(function(p){DR[p[1]]=p[0]});
+function setLang(l){
+ LANG=l;document.documentElement.lang=l==="kk"?"kk":"ru";
+ var w=document.createTreeWalker(document.querySelector("main").parentNode,NodeFilter.SHOW_TEXT);
+ var n;while(n=w.nextNode()){
+  if(n.parentNode.closest("script,style,#test"))continue;
+  var k=n.nodeValue.trim();if(!k)continue;
+  var map=l==="kk"?DM:DR;
+  if(map[k]!==undefined)n.nodeValue=n.nodeValue.replace(k,map[k]);
+ }
+ T=TT[l];nl.querySelectorAll("a").forEach(function(a,i){a.textContent=T[i]});
+ document.getElementById("lbtn").textContent=l==="kk"?"Русский":"Қазақша";
+ document.title=l==="kk"?"Қауіпсіз таңдау — есірткі «закладкасының» алдын алу":"Безопасный выбор — профилактика закладок наркотиков";
+ if(done)result();else if(!checked)showQ();else{var s0=sel;showQ();}
+ try{localStorage.setItem("lang",l)}catch(e){}
+}
+document.getElementById("lbtn").onclick=function(){setLang(LANG==="kk"?"ru":"kk")};
+try{if(localStorage.getItem("lang")==="kk")setLang("kk")}catch(e){}
+</script>
+</body>
+</html>
